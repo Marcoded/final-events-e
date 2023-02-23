@@ -1,14 +1,12 @@
 <h1 class ="text-center font-bold text-5xl h-10 my-10 text-slate-700 ">All our events!</h1>
 
 
-<div class = "flex  flex-col items-center   ">
-
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
   <% @events.each do |event| %>
-    <div><%=event.name%></div>
-    <div><%=event.location%></div>
-    <div><%=event.date%></div>
-    <div class = "shadow-md text-blue-400"><%= link_to 'Details', event_path(event) %></div>
-    <br>
+    <a href="<%= event_path(event) %>" class="block bg-white rounded-lg shadow-md p-6 hover:bg-slate-50">
+      <h2 class="text-xl font-medium mb-2 text-purple-600"><%= event.name %></h2>
+      <p class="text-gray-700 mb-4"><%= event.location %></p>
+      <p class="text-gray-700 mb-4"><%= event.date.strftime('%B %d, %Y') %></p>
+    </a>
   <% end %>
-
 </div>

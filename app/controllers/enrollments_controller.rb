@@ -3,11 +3,16 @@ class EnrollmentsController < ApplicationController
 
   def new
     @enrollment = Enrollment.new
+   
+    
   end
 
 
   def create
+    #test
+    #test
     @event = Event.find(params[:event_id])
+    #@enrollment = @event.enrollments.build(attendee: @user)
     @enrollment = @event.enrollments.build(attendee: current_user)
     redirect_to @event, notice: "You have been enrolled." if @enrollment.save
   end

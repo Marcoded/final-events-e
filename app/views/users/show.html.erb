@@ -10,6 +10,7 @@
     <div class="w-fit h-fit px-10 py-4 mx-5 my-5 bg-slate-600 rounded-lg text-slate-200 hover:bg-slate-400">
       <%= event.name %>
       <%= event.location %>
+      <p class="text-blue-200 mb-4"><%= event.date.strftime('%B %d, %Y') %></p>
     </div>
   <% end %>
 <% end %>
@@ -22,6 +23,7 @@
     <div class="w-fit h-fit px-10 py-4 mx-5 my-5 bg-slate-600 rounded-lg text-slate-200 hover:bg-slate-400">
       <%= event.name %>
       <%= event.location %>
+      <p class="text-gray-700 mb-4"><%= event.date.strftime('%B %d, %Y') %></p>
     </div>
   <% end %>
 <% end %>
