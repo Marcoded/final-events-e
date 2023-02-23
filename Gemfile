@@ -74,3 +74,5 @@ end
 gem "devise", github: "heartcombo/devise", branch: "main"
 gem "tailwindcss-rails", "~> 2.0"
 gem 'better_errors', '~> 2.9', '>= 2.9.1'
+
+gem "erb-formatter", "~> 0.4.2"

@@ -1,5 +1,27 @@
-<h1>user show page</h1>
-<% @created_events.each do |event|%>
-<%event.name%>
-<%event.location%>
-<%end%>
+<p><%= @user.email %>'s'events:</p>
+
+
+<% @upcoming_events = Event.where('date >= ?', Date.today).order(date: :asc) %>
+<% @past_events = Event.where('date < ?', Date.today).order(date: :desc) %>
+
+<h1 class = "font-bold text-lg">upcoming_events</h1>
+<% @upcoming_events.each do |event| %>
+  <%= link_to event_path(event) do %>
+    <div class="w-fit h-fit px-10 py-4 mx-5 my-5 bg-slate-600 rounded-lg text-slate-200 hover:bg-slate-400">
+      <%= event.name %>
+      <%= event.location %>
+    </div>
+  <% end %>
+<% end %>
+
+
+<h1 class = "font-bold text-lg">passed events</h1>
+
+<% @past_events.each do |event| %>
+  <%= link_to event_path(event) do %>
+    <div class="w-fit h-fit px-10 py-4 mx-5 my-5 bg-slate-600 rounded-lg text-slate-200 hover:bg-slate-400">
+      <%= event.name %>
+      <%= event.location %>
+    </div>
+  <% end %>
+<% end %>
