@@ -6,9 +6,11 @@
     <p class="text-gray-700 mb-4"><%= @event.date.strftime('%B %d, %Y') %></p>
     <div class = "text-blue-500 font-bold text-md">
         <% unless @event.attendees.include?(current_user)  %>
-              <%= button_to 'Join this event.', event_enrollments_path(@event, attendees: current_user), method: :post %> 
+              <%# <%= button_to 'Join this event.', event_enrollments_path(@event, attendees: current_user), method: :post %> 
+              <%= button_to 'Join this event', event_enrollments_path(@event) %>
         <% else %>
-          <%= button_to 'Leave this event.', event_enrollment_path(@event, current_user.enrollments), method: :delete %>
+          <%# <%= button_to 'Leave this event.', event_enrollment_path(@event, current_user.enrollments), method: :delete %> %>
+          <%= button_to 'Leave this event.', event_enrollment_path(@event), method: :delete %>
         <% end %>
     </div>
      
